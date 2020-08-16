@@ -7,7 +7,7 @@ module ExceptionTrack
 
     # GET /exception_logs
     def index
-      @logs = Log.order("id desc").page(params[:page]).per(15)
+      @logs = Log.order("id desc").page(params[:page]).per(25)
     end
 
     def export
