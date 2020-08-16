@@ -6,6 +6,7 @@ module ExceptionNotifier
 
     def call(exception, opts = {})
       return unless ExceptionTrack.config.enabled_env?(Rails.env)
+      return if exception.try(:custom_notify)
 
       # send the notification
       title = exception.message || "None"
